@@ -3,6 +3,8 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "mfussenegger/nvim-lint",
+    "mhartington/formatter.nvim"
   },
   config = function()
     -- import mason
@@ -36,16 +38,16 @@ return {
         "harper_ls", -- intention: GO, markdown
         "helm_ls",
         "jsonls",
-        "nginx_language_server",
-        "rnix",
+        -- "nginx_language_server", -- installation error to be fixed in future
         "powershell_es",
         "puppet",
         "pylsp",
         "pyright",
-        "sqlls",
+        -- "sqlls", -- installation error to be fixed in future
+        "rnix",
         "terraformls",
         "grammarly",
-        "gitlab_ci_ls",
+        -- "gitlab_ci_ls", -- installation error to be fixed in future
         "yamlls",
       },
     })
