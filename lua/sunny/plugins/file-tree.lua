@@ -9,16 +9,22 @@ return {
     vim.g.loaded_netrwPlugin = 1
 
     nvimtree.setup({
+      hijack_cursor = true,
       view = {
         width = 35,
         relativenumber = true,
+        signcolumn = "auto",
       },
-      -- change folder arrow icons
       renderer = {
+        full_name = true, --show full name in floating window if doesnt fit in pane
+        special_files = { "Cargo.toml", "requirements.txt", "setup.cfg", "Makefile", "README.md", "readme.md" },
+        hidden_display = "simple",
+        highlight_modified = "all",
         indent_markers = {
           enable = true,
         },
         icons = {
+          git_placement = "after",
           glyphs = {
             folder = {
               arrow_closed = "", -- arrow when folder is closed
@@ -31,17 +37,27 @@ return {
       -- explorer to work well with
       -- window splits
       actions = {
+        use_system_clipboard = true,
         open_file = {
           window_picker = {
             enable = false,
           },
         },
       },
-      filters = {
-        custom = { ".DS_Store" },
-      },
       git = {
         ignore = false,
+      },
+      diagnostics = {
+        enable = true,
+        severity = {
+          min = vim.diagnostic.severity.INFO,
+          max = vim.diagnostic.severity.ERROR,
+        },
+      },
+      modified = {
+        enable = true,
+        show_on_dirs = true,
+        show_on_open_dirs = true,
       },
     })
 
