@@ -6,5 +6,6 @@
 - Windows
 ```git clone https://github.com/sunny-1651/nvim_configs "$env:LOCALAPPDATA\nvim```
 
-A Glimpse of the final Result
-![image](https://github.com/user-attachments/assets/2d1fdc49-632e-4357-9f79-2a56a269f89e)
+A Glimpse of the Final Result
+![image](https://github.com/user-attachments/assets/a73e9391-8ae8-4c5b-b01e-305c708f97fd)
+
