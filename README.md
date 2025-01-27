@@ -27,3 +27,5 @@ Also install the following, these are essential dependencies
 + fd [not an essential lib but enables extended capabilities](https://github.com/sharkdp/fd)
 
 I use WSL on Windows system so all the dependencies listed are w.r.t. Linux. If Neovim is used on Windows then the first 5 might change, please refer to the package docs for the equivalencies.
+
+Copy the [pycodestyle](./pycodestyle) file to `XDG_CONFIG_HOME/pycodestyle` which usually translates to `~/.config/pycodestyle` in linux
