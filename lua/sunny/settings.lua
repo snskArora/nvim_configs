@@ -34,3 +34,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+-- keeps the distance of theese many lines between current line and EOF/SOF
+opt.scrolloff = 10
