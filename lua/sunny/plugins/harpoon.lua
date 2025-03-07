@@ -21,9 +21,9 @@ return {
     vim.keymap.set("n", "<A-9>", function() harpoon:list():select(9) end)
     vim.keymap.set("n", "<A-0>", function() harpoon:list():select(10) end)
 
-    vim.keymap.set("n", "<leader><A-1>", function() harpoon:list():replace_at(1) end)
     vim.keymap.set("n", "<leader><A-2>", function() harpoon:list():replace_at(2) end)
     vim.keymap.set("n", "<leader><A-3>", function() harpoon:list():replace_at(3) end)
+    vim.keymap.set("n", "<leader><A-4>", function() harpoon:list():replace_at(4) end)
     
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end, { desc = "Move to next harpooned buffer" })
