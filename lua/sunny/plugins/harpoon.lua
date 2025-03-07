@@ -6,7 +6,8 @@ return {
     local harpoon = require("harpoon")
     harpoon:setup()
 
-    vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "A-jdd buffer to harpoon" })
+    vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add buffer to harpoon" })
+    vim.keymap.set("n", "<leader>A", function() harpoon:list():prepend() end, { desc = "pre-append buffer to harpoon" })
     vim.keymap.set("n", "<leader>l", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "List buffers in harpoon" })
 
     vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)
