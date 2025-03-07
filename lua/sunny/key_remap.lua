@@ -17,3 +17,6 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
+-- Move lines up-down
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "J", ":m '<-2<CR>gv=gv")
