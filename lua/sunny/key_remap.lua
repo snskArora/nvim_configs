@@ -19,4 +19,4 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 -- Move lines up-down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "J", ":m '<-2<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
