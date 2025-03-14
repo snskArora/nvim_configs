@@ -27,3 +27,4 @@ keymap.set("x", "<leader>P", "\"_dP") -- paste before the cursor
 
 -- Replace the current word prompt
 vim.keymap.set("n", "<leader>fnr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
