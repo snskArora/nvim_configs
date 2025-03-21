@@ -5,8 +5,13 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
+    "stevearc/conform.nvim",
   },
   config = function()
+    require("conform").setup({
+        formatters_by_ft = {
+        }
+    })
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
