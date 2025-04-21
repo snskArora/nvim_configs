@@ -20,6 +20,9 @@ return {
       autotag = {
         enable = true,
       },
+      sync_install = false,
+      auto_install = true,
+      
       -- ensure these language parsers are installed
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "go", "gomod", "gosum", "python", "bash", "yaml", "cpp", "asm", "diff", "dockerfile", "json", "hcl", "nginx", "sql", "xml" },
       incremental_selection = {

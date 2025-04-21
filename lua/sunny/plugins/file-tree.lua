@@ -17,7 +17,7 @@ return {
       },
       renderer = {
         full_name = true, --show full name in floating window if doesnt fit in pane
-        special_files = { "Cargo.toml", "requirements.txt", "setup.cfg", "Makefile", "README.md", "readme.md" },
+        special_files = { "Cargo.toml", "requirements.txt", "setup.cfg", "Makefile", "README.md", "readme.md", ".editorconfig"},
         hidden_display = "simple",
         highlight_modified = "all",
         indent_markers = {

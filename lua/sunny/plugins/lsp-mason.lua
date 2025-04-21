@@ -36,21 +36,21 @@ return {
         "cmake",
         "dockerls",
         "lua_ls",
-        "harper_ls", -- intention: GO, markdown
         "helm_ls",
         "jsonls",
-        -- "nginx_language_server", -- installation error to be fixed in future
+        -- "nginx_language_server", -- py3 version required >=3.8,<3.12
         "powershell_es",
         "puppet",
         "pylsp",
         "pyright",
-        -- "sqlls", -- installation error to be fixed in future
-        "rnix",
+        "sqlls",
         "terraformls",
         "grammarly",
-        -- "gitlab_ci_ls", -- installation error to be fixed in future
+        "gitlab_ci_ls",
         "yamlls",
+        "toplo", -- Find out lang server entry, this is not it
       },
+      automatic_installation = true,
     })
 
     mason_tool_installer.setup({
