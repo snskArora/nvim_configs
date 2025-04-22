@@ -27,8 +27,8 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Paste over visual selection without sending the overwritten to the default register
-keymap.set("x", "<leader>p", "\"_dp") -- paste after the cursor
-keymap.set("x", "<leader>P", "\"_dP") -- paste before the cursor
+keymap.set("x", "<leader>p", "\"_dp", {desc = "Overwrite selection before cursor"}) -- paste after the cursor
+keymap.set("x", "<leader>P", "\"_dP", {desc = "Overwrite selection after cursor"}) -- paste before the cursor
 
 -- Replace the current word prompt
 vim.keymap.set("n", "<leader>fnr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
