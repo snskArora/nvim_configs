@@ -11,10 +11,10 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
-vim.keymap.set("n", "<C-k>", "<Cmd>wincmd k<CR>", { silent = true })
-vim.keymap.set("n", "<C-j>", "<Cmd>wincmd j<CR>", { silent = true })
-vim.keymap.set("n", "<C-h>", "<Cmd>wincmd h<CR>", { silent = true })
-vim.keymap.set("n", "<C-l>", "<Cmd>wincmd l<CR>", { silent = true })
+keymap.set("n", "<C-k>", "<Cmd>wincmd k<CR>", { silent = true })
+keymap.set("n", "<C-j>", "<Cmd>wincmd j<CR>", { silent = true })
+keymap.set("n", "<C-h>", "<Cmd>wincmd h<CR>", { silent = true })
+keymap.set("n", "<C-l>", "<Cmd>wincmd l<CR>", { silent = true })
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
@@ -31,5 +31,5 @@ keymap.set("x", "<leader>p", "\"_dp", {desc = "Overwrite selection before cursor
 keymap.set("x", "<leader>P", "\"_dP", {desc = "Overwrite selection after cursor"}) -- paste before the cursor
 
 -- Replace the current word prompt
-vim.keymap.set("n", "<leader>fnr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>fnr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
