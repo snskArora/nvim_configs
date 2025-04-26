@@ -9,10 +9,6 @@ local supercharger = function(opts)
   opts = opts or {}
   opts.cwd  = opts.cwd or vim.uv.cwd()
 
-  local check_glob = function (specimen, tbl_globs)
-    return false
-  end
-
   local searcher = finder.new_async_job {
     command_generator = function (prompt)
       if not prompt or prompt == "" or prompt == " " then
@@ -24,21 +20,14 @@ local supercharger = function(opts)
 
       if tranches[1] then
         table.insert(args, "-e")
-        local patterns = vim.split(tranches[1], " |&| ")
-        if 2 == #patterns then
-          table.insert(args, "approvalStatusDenied")
-        elseif 3 == #patterns then
-          table.insert(args, "ctx.")
-        else
-          table.insert(args, tranches[1])
-        end
+        table.insert(args, tranches[1])
       end
 
       if tranches[2] then
         local globs = vim.split(tranches[2], ", ")
-        for _, g in ipairs(globs) do
+        for _, glob in ipairs(globs) do
           table.insert(args, "-g")
-          table.insert(args, g)
+          table.insert(args, glob)
         end
       end
 
