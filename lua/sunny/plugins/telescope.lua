@@ -13,6 +13,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local transform_mod = require("telescope.actions.mt").transform_mod
+    local addon = require("sunny.telescope_addons")
 
     local trouble = require("trouble")
     local trouble_telescope = require("trouble.sources.telescope")
@@ -77,8 +78,8 @@ return {
 
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
---    keymap.set('n', '<C-p>',"<cmd>Telescope git_files<cr>", { desc = 'Telescope find files in git repo only' })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find in cwd" })
+    keymap.set('n', '<leader>fs', function() addon.better_grep() end, { desc = "Telescope find in cwd with mods" })
+    keymap.set("n", "<leader>feus", "<cmd>Telescope live_grep<cr>", { desc = "Find in cwd" })
     keymap.set("n", "<leader>grep", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>LB", "<cmd>Telescope buffers<cr>", {desc = "Show open buffers"})
