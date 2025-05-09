@@ -33,3 +33,8 @@ keymap.set("x", "<leader>P", "\"_dP", {desc = "Overwrite selection after cursor"
 -- Replace the current word prompt
 keymap.set("n", "<leader>fnr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Navigating quickfis list
+keymap.set("n", "<leader>qn", "<CMD>cnext<CR>", {desc = "next item from quickfix list"})
+keymap.set("n", "<leader>qp", "<CMD>cprev<CR>", {desc = "previous item from quickfix list"})
+keymap.set("n", "<leader>qs", "<CMD>copen<CR>", {desc = "show quickfix list"})
+keymap.set("n", "<leader>qc", "<CMD>cclose<CR>", {desc = "close quickfix list"})

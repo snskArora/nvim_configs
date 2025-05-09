@@ -81,12 +81,9 @@ return {
     keymap.set('n', '<leader>fs', function() addon.better_grep() end, { desc = "Telescope find in cwd with mods" })
     keymap.set("n", "<leader>feus", "<cmd>Telescope live_grep<cr>", { desc = "Find in cwd" })
     keymap.set("n", "<leader>grep", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-    keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>LB", "<cmd>Telescope buffers<cr>", {desc = "Show open buffers"})
-    keymap.set("n", "<leader>rg", "<cmd>Telescope registers<cr>", { desc = "Show values in the register" })
     keymap.set("n", "<leader>rf", "<cmd>Telescope lsp_document_symbols<cr>", {desc = "Show refs of current word in buffer"})
     keymap.set("n", "<leader>arf", "<cmd>Telescope lsp_workspace_symbols<cr>", {desc = "Show refs of current word in workspace"})
-    keymap.set("n", "<leader>mrk", "<cmd>Telescope marks<cr>", {desc = "Show all marks"})
     keymap.set("n", "<leader>gwt", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", {desc = "Show git worktrees"})
     keymap.set("n", "<leader>gwa", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", {desc = "Create a git worktree"})
   end,

@@ -48,7 +48,7 @@ return {
         "grammarly",
         "gitlab_ci_ls",
         "yamlls",
-        "toplo", -- Find out lang server entry, this is not it
+        -- "toplo", -- Find out lang server entry, this is not it
       },
       automatic_installation = true,
     })
