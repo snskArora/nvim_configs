@@ -49,7 +49,7 @@ return {
         "gitlab_ci_ls",
         "yamlls",
         -- "toplo", -- Find out lang server entry, this is not it
-        "typescript-language-server"
+        "ts_ls"
       },
       automatic_installation = true,
     })

@@ -117,7 +117,7 @@ return {
         })
       end
     end
-    lspconfig.tsserver.setup {
+    lspconfig.ts_ls.setup {
       on_attach = on_attach,
       filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
       cmd = { "typescript-language-server", "--stdio" }
