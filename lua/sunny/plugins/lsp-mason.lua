@@ -41,7 +41,7 @@ return {
         -- "nginx_language_server", -- py3 version required >=3.8,<3.12
         "powershell_es",
         "puppet",
-        "pylsp",
+        -- "pylsp",
         "pyright",
         "sqlls",
         "terraformls",
@@ -49,6 +49,7 @@ return {
         "gitlab_ci_ls",
         "yamlls",
         -- "toplo", -- Find out lang server entry, this is not it
+        "typescript-language-server"
       },
       automatic_installation = true,
     })
@@ -57,9 +58,7 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint",
+        "ruff",
       },
     })
   end,
