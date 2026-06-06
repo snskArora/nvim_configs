@@ -7,7 +7,7 @@ return {
   },
   config = function()
     -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+    local treesitter = require("nvim-treesitter.config")
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
@@ -22,9 +22,32 @@ return {
       },
       sync_install = false,
       auto_install = true,
-      
+
       -- ensure these language parsers are installed
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "go", "gomod", "gosum", "python", "bash", "yaml", "cpp", "asm", "diff", "dockerfile", "json", "hcl", "nginx", "sql", "xml" },
+      ensure_installed = {
+        "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "markdown",
+        "markdown_inline",
+        "go",
+        "gomod",
+        "gosum",
+        "python",
+        "bash",
+        "yaml",
+        "cpp",
+        "asm",
+        "diff",
+        "dockerfile",
+        "json",
+        "hcl",
+        "nginx",
+        "sql",
+        "xml",
+      },
       incremental_selection = {
         enable = true,
         keymaps = {
