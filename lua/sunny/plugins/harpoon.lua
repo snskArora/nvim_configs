@@ -4,7 +4,15 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function ()
     local harpoon = require("harpoon")
-    harpoon:setup()
+    harpoon:setup({
+      settings = {
+        -- workspaces.nvim: one Harpoon list per workspace (cwd when none is active)
+        key = function()
+          local ok, ws = pcall(require, "workspaces")
+          return ok and ws.harpoon_key() or vim.loop.cwd()
+        end,
+      },
+    })
 
     vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add buffer to harpoon" })
     vim.keymap.set("n", "<leader>A", function() harpoon:list():prepend() end, { desc = "pre-append buffer to harpoon" })

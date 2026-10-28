@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  branch = "master",
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -13,7 +13,10 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local transform_mod = require("telescope.actions.mt").transform_mod
-    local addon = require("sunny.telescope_addons")
+    -- local addon = require("sunny.telescope_addons") -- moved into workspaces.nvim
+
+    -- per-filetype LSP symbol filter for <leader>rf / <leader>arf (see sunny/lsp_symbols.lua)
+    local lsp_symbols = require("sunny.lsp_symbols")
 
     local trouble = require("trouble")
     local trouble_telescope = require("trouble.sources.telescope")
@@ -43,11 +46,11 @@ return {
       -- },
       extensions = {
         fzf = {
-          fuzzy = true,                    -- false will only do exact matching
-          override_generic_sorter = true,  -- override the generic sorter
-          override_file_sorter = true,     -- override the file sorter
-          case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                           -- the default case_mode is "smart_case"
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          -- the default case_mode is "smart_case"
         },
       },
       pickers = {
@@ -76,15 +79,35 @@ return {
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set('n', '<leader>fs', function() addon.better_grep() end, { desc = "Telescope find in cwd with mods" })
-    keymap.set("n", "<leader>feus", "<cmd>Telescope live_grep<cr>", { desc = "Find in cwd" })
-    keymap.set("n", "<leader>grep", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-    keymap.set("n", "<leader>LB", "<cmd>Telescope buffers<cr>", {desc = "Show open buffers"})
-    keymap.set("n", "<leader>rf", "<cmd>Telescope lsp_document_symbols<cr>", {desc = "Show refs of current word in buffer"})
-    keymap.set("n", "<leader>arf", "<cmd>Telescope lsp_workspace_symbols<cr>", {desc = "Show refs of current word in workspace"})
-    keymap.set("n", "<leader>gwt", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", {desc = "Show git worktrees"})
-    keymap.set("n", "<leader>gwa", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", {desc = "Create a git worktree"})
+    -- ff / fr / fs / feus / grep / gwt / gwa are now set by workspaces.nvim (plugins/workspaces.lua)
+    -- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+    -- keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+    -- keymap.set("n", "<leader>fs", function()
+    --   addon.better_grep()
+    -- end, { desc = "Telescope find in cwd with mods" })
+    -- keymap.set("n", "<leader>feus", "<cmd>Telescope live_grep<cr>", { desc = "Find in cwd" })
+    -- keymap.set("n", "<leader>grep", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>LB", "<cmd>Telescope buffers<cr>", { desc = "Show open buffers" })
+    keymap.set("n", "<leader>rf", function()
+      require("telescope.builtin").lsp_document_symbols(lsp_symbols.opts())
+    end, { desc = "Show all buffer symbols (filtered per filetype)" })
+    keymap.set("n", "<leader>arf", function()
+      require("telescope.builtin").lsp_workspace_symbols(lsp_symbols.opts())
+    end, { desc = "Show all workspace symbols (filtered per filetype)" })
+    keymap.set("n", "<leader>frf", function()
+      require("sunny.folder_symbols").open()
+    end, { desc = "Live LSP symbols in one workspace folder" })
+    -- keymap.set(
+    --   "n",
+    --   "<leader>gwt",
+    --   "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>",
+    --   { desc = "Show git worktrees" }
+    -- )
+    -- keymap.set(
+    --   "n",
+    --   "<leader>gwa",
+    --   "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
+    --   { desc = "Create a git worktree" }
+    -- )
   end,
 }

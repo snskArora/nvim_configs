@@ -51,7 +51,8 @@ return {
         kind = "tab",
       },
     } -- auto => vsplit if window would have 80 cols, otherwise split
-    vim.keymap.set("n", "<leader>gt", "<cmd>Neogit<cr>", {desc = "Open neogit window"})
+    -- <leader>gt is now set by workspaces.nvim (multi-root aware Neogit)
+    -- vim.keymap.set("n", "<leader>gt", "<cmd>Neogit<cr>", {desc = "Open neogit window"})
   end
 }
 

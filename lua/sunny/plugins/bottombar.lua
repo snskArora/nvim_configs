@@ -55,7 +55,18 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
-        lualine_b = {'branch'},
+        lualine_b = {
+          -- workspaces.nvim: "<workspace> (<folder count>)", hidden when none active
+          {
+            function()
+              local ok, ws = pcall(require, "workspaces")
+              return ok and ws.statusline() or ""
+            end,
+            color = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
+            separator = { right = "" }, -- arrow end (U+E0B0), same as the mode pill
+          },
+          'branch',
+        },
         lualine_c = {{'diff', 'diagnostics'},
           {
             path = 1,

@@ -56,6 +56,13 @@ return {
       git = {
         ignore = false,
       },
+      -- workspaces.nvim: with 2+ workspace folders, only show those folders
+      filters = {
+        custom = function(path)
+          local ok, ws = pcall(require, "workspaces")
+          return ok and ws.nvim_tree_filter(path) or false
+        end,
+      },
       diagnostics = {
         enable = true,
         severity = {
